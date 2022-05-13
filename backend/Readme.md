@@ -1,0 +1,1 @@
+This is a node.js and mongodb backend application for user registration and login.

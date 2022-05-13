@@ -1,4 +1,4 @@
-const client = require('./db');
+import client from './db.js';
 
 async function updateUser(firstName, lastName, newFirstName, newLastName) {
   try {
@@ -36,4 +36,4 @@ async function updateUser(firstName, lastName, newFirstName, newLastName) {
 }
 
 
-module.exports = updateUser;
+export default updateUser;

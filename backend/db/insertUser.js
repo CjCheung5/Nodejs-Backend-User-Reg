@@ -1,6 +1,6 @@
-const client = require('./db');
+import client from './db.js';
 
-async function insertUser() {
+async function insertUser(firstName, lastName) {
     try {
         await client.connect();
         console.log("Connected correctly to server");
@@ -10,11 +10,8 @@ async function insertUser() {
         const col = db.collection('user');
 
         let personDocument = {
-            "name": { "first": "Alan", "last": "Turing" },
-            "birth": new Date(1912, 5, 23), // May 23, 1912                                                                                                                                 
-            "death": new Date(1954, 5, 7),  // May 7, 1954                                                                                                                                  
-            "contribs": [ "Turing machine", "Turing test", "Turingery" ],
-            "views": 1250000
+            firstName: firstName,
+            lastName: lastName
         };
 
         const p = await col.insertOne(personDocument);
@@ -28,4 +25,4 @@ async function insertUser() {
     }
 }
 
-module.exports = insertUser;
+export default insertUser;

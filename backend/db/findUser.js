@@ -1,4 +1,4 @@
-const client = require('./db');
+import client from './db.js';
 
 //findUser by their first and last name
 async function findUser(firstName, lastName) {
@@ -10,10 +10,11 @@ async function findUser(firstName, lastName) {
 
         const col = db.collection('user');
         
-        let personDocument = {"name": {"firstName":firstName, "lastName":lastName}};
+        let personDocument = {"firstName":firstName, "lastName":lastName};
 
         const p = await col.findOne(personDocument);
-        console.log(p);
+
+        return p;
 
     } catch(err) {
         console.log(err.stack);
@@ -23,4 +24,4 @@ async function findUser(firstName, lastName) {
     }
 };
 
-module.exports = findUser;
+export default findUser;

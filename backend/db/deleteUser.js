@@ -1,4 +1,4 @@
-const client = require('./db');
+import client from './db.js';
 
 async function deleteUser(firstName, lastName) {
   try {
@@ -24,4 +24,4 @@ async function deleteUser(firstName, lastName) {
   }
 }
 
-module.exports = deleteUser;
+export default deleteUser;
